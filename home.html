@@ -1,0 +1,59 @@
+<html>
+ 
+<head>
+    <title>Weather App Home Page</title>
+    <link rel="stylesheet" href="project.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+    <script src="project.js" defer></script>
+
+</head>
+
+<body>
+    <h1 id="appheader">Weather App</h1>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html" onclick="transition(event)">Home</a></li>
+                <li><a href="about.html" onclick="transition(event)">About</a></li>
+                <li><a href="help.html" onclick="transition(event)">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="searchCity">
+            <h2>Weather Search</h2>
+            <input type="text" id="citySearch" placeholder="Enter City Name">
+            <button class="button-89" id="searchButton" onclick="fetchWeather()">Get Weather</button>
+        </div>
+        <div id="weatherInfo">
+            <h2>Weather Details</h2>
+            <div id="cityMap"></div>
+            <canvas id="weatherChart"></canvas>
+        </div>
+        <br>
+        <div class="default-box">
+            <div class="default-content">
+                <button class="button-89" id="changeDefault" onclick="switchDefault()">Default Locations</button>
+                <br>
+            </div>
+            <br>
+            <div class="location-form">
+                <form id="addLocationForm" onsubmit="return handleFormSubmit()">
+                    <label for="city_name">City Name:</label>
+                    <input type="text" id="city_name" placeholder="New York" />
+                    <label for="country_code">Country Code:</label>
+                    <input type="text" id="country_code" placeholder="US" />
+                    <button type="submit">Add Location</button>
+                </form>
+
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
